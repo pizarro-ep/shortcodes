@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot con Bootstrap</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close" />
+</head>
+
+<body>
+    <div id="container-bot" class="container hidden">
+        <div class="chat-header">
+            <img id="bot-img" src="/static/img/bot-conversacional.png" alt="Bot...">
+            <div class="brand">
+                <h4>ZERO</h4>
+                <small>Conversación con un asistente del aula virtual</small>
+            </div>
+            <div>
+                <button id="btn-close-chat">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                </button>
+            </div>
+        </div>
+        <div class="chat-box" id="chat-box">
+            <div class="chat-box-present">
+                <img src="/static/img/bot-conversacional.png" alt="Bot...">
+                <div class="brand">
+                    <h4>ZERO</h4>
+                    <small>Conversación con un asistente del aula virtual</small>
+                </div>
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div class="container-input">
+            <input type="text" id="user-input" class="user-input" placeholder="Escribe tu mensaje...">
+            <button class="send-btn" id="send-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <button id="btn-open-chat">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-400h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/></svg>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/main.js"></script> 
+</body>
+
+</html>
