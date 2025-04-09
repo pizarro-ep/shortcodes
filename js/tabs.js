@@ -1,12 +1,22 @@
 // Using tailwindcss class for style
 
-document.addEventListener("DOMContentLoaded",  (event) => {
+document.addEventListener("DOMContentLoaded", () => {
 	const tabs = document.querySelectorAll("[data-tab]");
 	const contents = document.querySelectorAll("[data-content]");
+
+	// Obtener la clave basada en la ruta sin el ID
+	const basePath = window.location.pathname.replace(/\/\d+$/, ""); // Remueve el ID al final
+	const pageKey = `activeTab_${basePath}`;
+
+	// Recuperar el tab guardado en localStorage o usar el primero
+	const savedTab = localStorage.getItem(pageKey) || tabs[0].getAttribute("data-tab");
 
 	tabs.forEach((tab) => {
 		tab.addEventListener("click", function () {
 			const target = this.getAttribute("data-tab");
+
+			// Guardar en localStorage con la clave basada en la ruta sin ID
+			localStorage.setItem(pageKey, target);
 
 			// Quitar clases activas de todos los tabs
 			tabs.forEach((t) => t.classList.remove("bg-gray-50", "text-black"));
@@ -28,8 +38,11 @@ document.addEventListener("DOMContentLoaded",  (event) => {
 		});
 	});
 
-	// Activar el primer tab por defecto
-	tabs[0].click(); 
+	// Restaurar el tab guardado
+	const activeTab = document.querySelector(`[data-tab="${savedTab}"]`);
+	if (activeTab) {
+		activeTab.click();
+	} 
 });
 
 
@@ -52,6 +65,7 @@ document.addEventListener("DOMContentLoaded",  (event) => {
 
 <!-- Contenido -->
 <div class="w-full bg-gray-50 p-6 rounded-lg">
+	<div data-content="tab-loading" class="h-[250px]">Cargando....</div>
     <div data-content="tab-content-1" class="text-medium text-gray-500"> 
         Content 1
     </div>
