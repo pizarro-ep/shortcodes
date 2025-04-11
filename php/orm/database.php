@@ -44,12 +44,16 @@ class Database
 
 }
 
-abstract class Core
+abstract class Core extends QueryBuilder
 {
     protected static string $table;
     protected static array $fillable = [];
     private static ?int $limit;
     private static ?int $offset;
+    private static ?string $orderby;
+    protected int $id;
+
+    private static string $sql = "";
 
     public static function find(int $id): ?static
     {
@@ -75,6 +79,8 @@ abstract class Core
             return $data ? array_map(fn($row) => static::mapToObject($row), $data) : null;
         } catch (PDOException $th) {
             throw $th;
+        } finally {
+            self::setPager();
         }
     }
 
@@ -85,6 +91,8 @@ abstract class Core
             $args = static::getFillableFieldsStatic($args);
             $conditions = [];
             $params = [];
+
+            
 
             foreach ($args as $col => $val) {
                 $paramKey = ":$col";
@@ -99,6 +107,7 @@ abstract class Core
 
             $whereClause = count($conditions) ? 'WHERE ' . implode(" AND ", $conditions) : '';
             $sql = "SELECT * FROM " . static::$table . " $whereClause" . self::getPager();
+            //self::setPager();
 
             $stmt = $pdo->prepare($sql);
             $stmt->execute($params);
@@ -108,6 +117,8 @@ abstract class Core
 
         } catch (Exception $e) {
             throw new Exception("No se pudo realizar la búsqueda.");
+        } finally {
+            self::setPager();
         }
     }
 
@@ -197,6 +208,8 @@ abstract class Core
             return $data ? array_map(fn($row) => static::mapToObject($row), $data) : null;
         } catch (Exception $e) {
             throw new Exception("No se pudo aplicar el filtro.");
+        } finally {
+            self::setPager();
         }
     }
 
@@ -219,7 +232,12 @@ abstract class Core
             }
 
             $stmt = $pdo->prepare($sql);
-            return $stmt->execute($fields);
+            if ($stmt->execute($fields)) {
+                if (!isset($this->id) || empty($this->id))
+                    $this->id = $pdo->lastInsertId();
+                return true;
+            }
+            return false;
         } catch (PDOException $e) {
             //Database::logError("Save error in " . static::$table . ": " . $e->getMessage());
             return Database::getFriendlyMessage($e);
@@ -239,6 +257,39 @@ abstract class Core
         }
     }
 
+    public static function exists($id): bool
+    {
+        try {
+            if (!isset($id))
+                return false;
+            $pdo = Database::getConnection();
+            $stmt = $pdo->prepare("SELECT * FROM " . static::$table . " WHERE id = :id");
+            $stmt->execute(['id' => $id]);
+            return $stmt->rowCount() > 0;
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }
+
+    public static function executeProcedure($procedureName, $params = []): ?array
+    {
+        try {
+            $pdo = Database::getConnection();
+
+            $params = array_filter($params, fn($val) => is_string($val));
+            $params_name = implode(", ", array_map(fn($param) => ":" . strtolower(preg_replace('/[^a-zA-Z0-9]/', '_', $param)), array_keys($params)));
+
+            $stmt = $pdo->prepare("CALL $procedureName($params_name)");
+            foreach ($params as $param => $value) {
+                $stmt->bindParam(":" . strtolower(preg_replace('/[^a-zA-Z0-9]/', '_', $param)), $value);
+            }
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }
+
     protected function getFillableFields(): array
     {
         $vars = get_object_vars($this);
@@ -247,6 +298,14 @@ abstract class Core
     public static function getFillableFieldsStatic(array $fillable): array
     {
         return array_intersect_key($fillable, array_flip(static::$fillable));
+    }
+
+    public static function setOrderBy(?array $orderBy = null)
+    {
+        if ($orderBy !== null || !empty($orderBy)) {
+            self::$orderby = "ORDER BY " . implode(", ", array_filter($orderBy, fn($val) => is_string($val)));
+        }
+        self::$orderby = "ORDER BY id ASC";
     }
 
     public static function getCountTotalItems()
@@ -265,12 +324,6 @@ abstract class Core
     {
         self::$limit = $limit;
         self::$offset = $offset;
-    }
-
-    public static function resetPager()
-    {
-        self::$limit = null;
-        self::$offset = null;
     }
 
     private static function getPager()
@@ -295,6 +348,160 @@ abstract class Core
             }
         }
         return $object;
+    }
+}
+
+abstract class QueryBuilder
+{
+    protected static string $table;
+    private $fields = []; 
+    private $where;
+    private $order = [];
+    private $limit;
+    private $offset;
+
+    public function select(array $fields): static
+    {
+        if (!empty($fields) && $fields !== null) {
+            $fields = array_filter($fields, fn($val) => is_string($val));
+            $this->fields = array_merge($this->fields, $fields);
+        }
+        return $this;
+    }
+
+    private function getSelect(): string
+    {
+        return !empty($this->fields) ? implode(", ", $this->fields) : "*";
+    }
+
+    public function where(array $conditions)
+    {
+        if (!empty($conditions)) {
+            $this->where = $conditions;
+
+        }
+        return $this;
+    }
+
+    public function getWhere()
+    {
+        return !empty($this->where) ? "WHERE " . implode(" AND ", $this->where) : "";
+    }
+
+    public function orderBy($field, $direction = null)
+    {
+        $direction = $direction || !is_string($direction) ?? 'ASC';
+        $direction = in_array($direction, ['ASC', 'DESC'], true) ? $direction : 'ASC';
+        $this->order[] = array($field, $direction);
+        return $this;
+    }
+
+    public function getOrderBy()
+    {
+        $_order = "";
+        foreach ($this->order as $order) {
+            $_order = $order[0] . " " . $order[1];
+        }
+
+        return $_order;
+    }
+
+    public function skip($offset)
+    {
+        $this->offset = is_int($offset) ? $offset : null;
+        return $this;
+    }
+
+    private function getSkip()
+    {
+        if ($this->offset !== null && $this->limit !== null) {
+            return " OFFSET " . $this->offset;
+        }
+        return "";
+    }
+
+    public function take($limit)
+    {
+        $this->limit = is_int($limit) ? $limit : null;
+        return $this;
+    }
+
+    private function getTake()
+    {
+        if ($this->limit !== null) {
+            return " LIMIT " . $this->limit;
+        }
+        return "";
+    }
+
+    public function getResult(): ?array
+    {
+        $pdo = Database::getConnection();
+        $stmt = $pdo->prepare($this->buildQuery());
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function buildQuery()
+    {
+        $query = sprintf(
+            "SELECT %s FROM %s%s%s%s",
+            $this->getSelect(),
+            static::$table,
+            $this->getWhere(),
+            $this->getOrderBy(),
+            $this->getTake(),
+            $this->getSkip()
+        );
+
+        echo $query;
+
+        return $query;
+    }
+}
+
+class ORM
+{
+    private $table;
+    private $resultSet;
+
+    public function for_table($table)
+    {
+        $this->table = $table;
+        return $this;
+    }
+
+    public function find_result_set()
+    {
+        $this->resultSet = new ResultSet($this->table);
+        return $this->resultSet;
+    }
+}
+
+class ResultSet
+{
+    private $table;
+    private $data;
+
+    public function __construct($table)
+    {
+        $this->table = $table;
+    }
+
+    public function set($column, $value)
+    {
+        $this->data[$column] = $value;
+        return $this;
+    }
+
+    public function save()
+    {
+        // Aquí puedes implementar la lógica para guardar los datos en la base de datos
+        // Por ejemplo, podrías utilizar una sentencia SQL para actualizar la tabla
+        $sql = "UPDATE $this->table SET age = :age";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':age', $this->data['age']);
+        $stmt->execute();
     }
 }
 
@@ -358,14 +565,53 @@ class Role extends Core
     }
 }
 
+class Cache
+{
+    private $cache = [];
+
+    function __construct()
+    {
+    }
+
+    public function store($key, $data, $ttl = 3600)
+    {
+        $this->cache[$key] = [
+            'data' => $data,
+            'ttl' => time() + $ttl,
+        ];
+    }
+
+    public function retrieve($key)
+    {
+        if (isset($this->cache[$key])) {
+            $cacheItem = $this->cache[$key];
+            if ($cacheItem['ttl'] > time()) {
+                return $cacheItem['data'];
+            } else {
+                unset($this->cache[$key]);
+            }
+        }
+        return null;
+    }
+
+    public function invalidate($key)
+    {
+        unset($this->cache[$key]);
+    }
+}
+
+
 // ===================
 // USO
 // ===================
 
 Database::connect('mysql:host=localhost;dbname=test', 'root', 'ZeroCorp@12');
 
-echo json_encode(User::findAll()) . "\n\n";
-echo User::getCountTotalItems() . "\n\n";
+
+$user = new User();
+$user->select(['id', 'name', 'email']);
+$user->where([])->take(1)->skip(0)->getResult();
+echo json_encode($user) . "\n\n";
 
 /*echo json_encode(Role::findAll()) . "\n\n";
 
@@ -404,3 +650,13 @@ function RoleInit()
     $role->role = "INVITADO";
     $role->save();
 }
+
+
+/** NOTA
+ * Caché: Implementa un sistema de caché para almacenar los resultados de las consultas y reducir la carga en la base de datos.
+ Soporte para relaciones: Agrega la capacidad de definir relaciones entre tables, como relaciones de uno a uno, uno a muchos y muchos a muchos.
+ Soporte para consultas complejas: Agrega la capacidad de realizar consultas más complejas, como consultas con subconsultas, joins y agregaciones.
+ Soporte para tipos de datos personalizados: Agrega la capacidad de definir tipos de datos personalizados para almacenar datos específicos.
+ Soporte para migraciones: Agrega la capacidad de realizar migraciones de la base de datos, lo que te permitirá cambiar la estructura de la base de datos de manera controlada.
+ * 
+ */
