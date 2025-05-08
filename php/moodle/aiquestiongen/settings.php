@@ -9,7 +9,7 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-if ($hassiteconfig) { // Asegúrate de que el usuario tenga permisos de administrador.
+if ($ADMIN->fulltree) { // Asegúrate de que el usuario tenga permisos de administrador.
     $settings = new admin_settingpage('block_aiquestiongensettings', get_string('pluginname', 'block_aiquestiongen'));
 
     $settings->add(new admin_setting_configtext(
