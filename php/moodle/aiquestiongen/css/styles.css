@@ -1,0 +1,42 @@
+.aiqg-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background-color: rgb(50, 50, 50);
+    border-radius: 50px;
+}
+
+.gap-2 {
+    gap: 0.5rem;
+}
+
+.aiqg-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(70, 70, 70);
+    color: rgb(100, 100, 100);
+    border: none;
+    border-radius: 15px;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.aiqg-textarea {
+    overflow: hidden;
+    resize: vertical;
+    width: 100%; 
+    height: auto;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.aiqg-textarea:focus {
+    outline: none;
+}
+
