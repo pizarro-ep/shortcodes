@@ -1,0 +1,1740 @@
+{
+	"1": "T\u00edtulo",
+	"21": "Descripci\u00f3n",
+	"12": "Estados",
+	"10": "Urgencia",
+	"11": "Impacto",
+	"3": "Prioridad",
+	"15": "Fecha de apertura",
+	"45": "Duraci\u00f3n total",
+	"18": "Tiempo en resolver",
+	"4": "Solicitante",
+	"71": "Grupo solicitante",
+	"5": "T\u00e9cnico",
+	"8": "Grupo t\u00e9cnico",
+	"6": "Asignado a un proveedor",
+	"66": "Observador",
+	"65": "Grupo observador",
+	"13": "Elementos asociados",
+	"-2": "Solicitud de aprobaci\u00f3n",
+	"142": "Documentos",
+	"175": "Tareas",
+	"83": "Ubicaci\u00f3n",
+	"9": "Fuente de solicitud",
+	"37": "SLA Tiempo en adue\u00f1arse",
+	"30": "SLA Tiempo en resolver",
+	"190": "OLA Tiempo interno para poseer",
+	"191": "OLA Tiempo interno para resolver",
+	"155": "Tiempo en adue\u00f1arse",
+	"180": "Tiempo interno para resolver",
+	"185": "Tiempo interno para poseer",
+	"52": "Aprobaci\u00f3n",
+	"193": "Contrato",
+	"y": {
+		"2": {
+			"id": 2,
+			"tickettemplates_id": 2,
+			"num": 1,
+			"value": "Crear Usuario"
+		},
+		"4": { "id": 4, "tickettemplates_id": 2, "num": 7, "value": "1739" },
+		"5": { "id": 5, "tickettemplates_id": 2, "num": 8, "value": "9" },
+
+		"x": {
+			"1": "Crear Usuario",
+			"7": "1739",
+			"8": "9",
+			"entities_id": 0,
+			"status": 1,
+			"tickets_id": 614
+		}
+	},
+	"z": [
+		{
+			"id": 603,
+			"entities_id": 0,
+			"name": "Nuevo caso de prueba",
+			"date": "2025-04-23 22:34:43",
+			"closedate": null,
+			"solvedate": null,
+			"takeintoaccountdate": "2025-04-23 22:34:43",
+			"date_mod": "2025-04-30 15:28:05",
+			"users_id_lastupdater": 2,
+			"status": 3,
+			"users_id_recipient": 2,
+			"requesttypes_id": 1,
+			"content": "&#60;p&#62;Nuevo caso de prueba&#60;/p&#62;",
+			"urgency": 3,
+			"impact": 3,
+			"priority": 2,
+			"itilcategories_id": 1739,
+			"type": 2,
+			"global_validation": 1,
+			"slas_id_ttr": 0,
+			"slas_id_tto": 0,
+			"slalevels_id_ttr": 0,
+			"time_to_resolve": null,
+			"time_to_own": null,
+			"begin_waiting_date": null,
+			"sla_waiting_duration": 0,
+			"ola_waiting_duration": 0,
+			"olas_id_tto": 0,
+			"olas_id_ttr": 0,
+			"olalevels_id_ttr": 0,
+			"ola_tto_begin_date": null,
+			"ola_ttr_begin_date": null,
+			"internal_time_to_resolve": null,
+			"internal_time_to_own": null,
+			"waiting_duration": 0,
+			"close_delay_stat": 0,
+			"solve_delay_stat": 0,
+			"takeintoaccount_delay_stat": 1,
+			"actiontime": 0,
+			"is_deleted": 0,
+			"locations_id": 0,
+			"validation_percent": 0,
+			"date_creation": "2025-04-23 22:34:43"
+		}
+	],
+	"a": [
+		[
+			{ "id": "common", "name": "Caracter\u00edsticas" },
+			{
+				"id": "1",
+				"table": "glpi_tickets",
+				"field": "name",
+				"name": "T\u00edtulo",
+				"datatype": "itemlink",
+				"searchtype": "contains",
+				"massiveaction": false,
+				"additionalfields": ["id", "status"]
+			},
+			{
+				"id": "21",
+				"table": "glpi_tickets",
+				"field": "content",
+				"name": "Descripci\u00f3n",
+				"massiveaction": false,
+				"datatype": "text",
+				"htmltext": true
+			},
+			{
+				"id": "2",
+				"table": "glpi_tickets",
+				"field": "id",
+				"name": "ID",
+				"massiveaction": false,
+				"datatype": "number"
+			},
+			{
+				"id": "12",
+				"table": "glpi_tickets",
+				"field": "status",
+				"name": "Estados",
+				"searchtype": "equals",
+				"datatype": "specific"
+			},
+			{
+				"id": "10",
+				"table": "glpi_tickets",
+				"field": "urgency",
+				"name": "Urgencia",
+				"searchtype": "equals",
+				"datatype": "specific"
+			},
+			{
+				"id": "11",
+				"table": "glpi_tickets",
+				"field": "impact",
+				"name": "Impacto",
+				"searchtype": "equals",
+				"datatype": "specific"
+			},
+			{
+				"id": "3",
+				"table": "glpi_tickets",
+				"field": "priority",
+				"name": "Prioridad",
+				"searchtype": "equals",
+				"datatype": "specific"
+			},
+			{
+				"id": "15",
+				"table": "glpi_tickets",
+				"field": "date",
+				"name": "Fecha de apertura",
+				"datatype": "datetime",
+				"massiveaction": false
+			},
+			{
+				"id": "16",
+				"table": "glpi_tickets",
+				"field": "closedate",
+				"name": "Fecha de cierre",
+				"datatype": "datetime",
+				"massiveaction": false
+			},
+			{
+				"id": "18",
+				"table": "glpi_tickets",
+				"field": "time_to_resolve",
+				"name": "Tiempo en resolver",
+				"datatype": "datetime",
+				"maybefuture": true,
+				"massiveaction": false,
+				"additionalfields": ["solvedate", "status"]
+			},
+			{
+				"id": "151",
+				"table": "glpi_tickets",
+				"field": "time_to_resolve",
+				"name": "Tiempo en resolver + Progreso",
+				"massiveaction": false,
+				"nosearch": true,
+				"additionalfields": ["status"]
+			},
+			{
+				"id": "82",
+				"table": "glpi_tickets",
+				"field": "is_late",
+				"name": "Tiempo para resolver excedido",
+				"datatype": "bool",
+				"massiveaction": false,
+				"computation": "IF(`TABLE`.`time_to_resolve` IS NOT NULL\n            AND `TABLE`.`status` <> 4\n            AND (`TABLE`.`solvedate` > `TABLE`.`time_to_resolve`\n                  OR (`TABLE`.`solvedate` IS NULL\n                     AND `TABLE`.`time_to_resolve` < NOW())),\n            1, 0)"
+			},
+			{
+				"id": "17",
+				"table": "glpi_tickets",
+				"field": "solvedate",
+				"name": "Fecha de resoluci\u00f3n",
+				"datatype": "datetime",
+				"massiveaction": false
+			},
+			{
+				"id": "19",
+				"table": "glpi_tickets",
+				"field": "date_mod",
+				"name": "\u00daltima modificaci\u00f3n",
+				"datatype": "datetime",
+				"massiveaction": false
+			},
+			{
+				"id": "7",
+				"table": "glpi_itilcategories",
+				"field": "completename",
+				"name": "Categor\u00eda",
+				"datatype": "dropdown"
+			},
+			{
+				"id": "80",
+				"table": "glpi_entities",
+				"field": "completename",
+				"name": "Entidad",
+				"massiveaction": false,
+				"datatype": "dropdown"
+			},
+			{
+				"id": "45",
+				"table": "glpi_tickets",
+				"field": "actiontime",
+				"name": "Duraci\u00f3n total",
+				"datatype": "timestamp",
+				"massiveaction": false,
+				"nosearch": true
+			},
+			{
+				"id": "64",
+				"table": "glpi_users",
+				"field": "name",
+				"linkfield": "users_id_lastupdater",
+				"name": "\u00daltima edicion por",
+				"massiveaction": false,
+				"datatype": "dropdown",
+				"right": "all"
+			},
+			{
+				"id": "142",
+				"table": "glpi_documents",
+				"field": "name",
+				"name": "Documentos",
+				"forcegroupby": true,
+				"usehaving": true,
+				"nosearch": true,
+				"nodisplay": true,
+				"datatype": "dropdown",
+				"massiveaction": false,
+				"joinparams": {
+					"jointype": "items_id",
+					"beforejoin": {
+						"table": "glpi_documents_items",
+						"joinparams": { "jointype": "itemtype_item" }
+					}
+				}
+			},
+			{
+				"id": "400",
+				"table": "glpi_pendingreasons",
+				"field": "name",
+				"name": "Motivo pendiente",
+				"massiveaction": false,
+				"searchtype": ["equals", "notequals"],
+				"datatype": "dropdown",
+				"joinparams": {
+					"jointype": "items_id",
+					"beforejoin": {
+						"table": "glpi_pendingreasons_items",
+						"joinparams": { "jointype": "itemtype_item" }
+					}
+				}
+			},
+			{
+				"id": 83,
+				"table": "glpi_locations",
+				"field": "completename",
+				"name": "Ubicaci\u00f3n",
+				"datatype": "dropdown"
+			},
+			{
+				"id": "101",
+				"table": "glpi_locations",
+				"field": "address",
+				"name": "Direcci\u00f3n",
+				"massiveaction": false,
+				"datatype": "string"
+			},
+			{
+				"id": "102",
+				"table": "glpi_locations",
+				"field": "postcode",
+				"name": "C\u00f3digo postal",
+				"massiveaction": false,
+				"datatype": "string"
+			},
+			{
+				"id": "103",
+				"table": "glpi_locations",
+				"field": "town",
+				"name": "Ciudad",
+				"massiveaction": false,
+				"datatype": "string"
+			},
+			{
+				"id": "104",
+				"table": "glpi_locations",
+				"field": "state",
+				"name": "Estado",
+				"massiveaction": false,
+				"datatype": "string"
+			},
+			{
+				"id": "105",
+				"table": "glpi_locations",
+				"field": "country",
+				"name": "Pa\u00eds",
+				"massiveaction": false,
+				"datatype": "string"
+			},
+			{
+				"id": 84,
+				"table": "glpi_locations",
+				"field": "building",
+				"name": "# de Edificio",
+				"massiveaction": false,
+				"datatype": "string"
+			},
+			{
+				"id": 85,
+				"table": "glpi_locations",
+				"field": "room",
+				"name": "# de Oficina",
+				"massiveaction": false,
+				"datatype": "string"
+			},
+			{
+				"id": 86,
+				"table": "glpi_locations",
+				"field": "comment",
+				"name": "Comentarios sobre locaci\u00f3n",
+				"massiveaction": false,
+				"datatype": "text"
+			},
+			{
+				"id": "998",
+				"table": "glpi_locations",
+				"field": "latitude",
+				"name": "Latitud",
+				"massiveaction": false,
+				"datatype": "text"
+			},
+			{
+				"id": "999",
+				"table": "glpi_locations",
+				"field": "longitude",
+				"name": "Longitud",
+				"massiveaction": false,
+				"datatype": "text"
+			},
+			{
+				"id": "450",
+				"table": "glpi_projects",
+				"field": "name",
+				"name": "Proyecto",
+				"massiveaction": false,
+				"searchtype": ["equals", "notequals"],
+				"datatype": "dropdown",
+				"joinparams": {
+					"jointype": "items_id",
+					"beforejoin": {
+						"table": "glpi_itils_projects",
+						"joinparams": { "jointype": "itemtype_item" }
+					}
+				}
+			},
+			{
+				"id": "155",
+				"table": "glpi_tickets",
+				"field": "time_to_own",
+				"name": "Tiempo en adue\u00f1arse",
+				"datatype": "datetime",
+				"maybefuture": true,
+				"massiveaction": false,
+				"additionalfields": [
+					"date",
+					"status",
+					"takeintoaccount_delay_stat",
+					"takeintoaccountdate"
+				]
+			},
+			{
+				"id": "158",
+				"table": "glpi_tickets",
+				"field": "time_to_own",
+				"name": "Tiempo de poseer + progreso",
+				"massiveaction": false,
+				"nosearch": true,
+				"additionalfields": ["status"]
+			},
+			{
+				"id": "159",
+				"table": "glpi_tickets",
+				"field": "is_late",
+				"name": "Tiempo para tomar excedido",
+				"datatype": "bool",
+				"massiveaction": false,
+				"computation": "IF(`TABLE`.`time_to_own` IS NOT NULL\n            AND `TABLE`.`status` <> 4\n            AND ((`TABLE`.`takeintoaccountdate` IS NOT NULL AND\n                 `TABLE`.`takeintoaccountdate` > `TABLE`.`time_to_own`)\n                 OR (`TABLE`.`takeintoaccountdate` IS NULL AND\n                 `TABLE`.`takeintoaccount_delay_stat`\n                        > TIMESTAMPDIFF(SECOND,\n                                        `TABLE`.`date`,\n                                        `TABLE`.`time_to_own`))\n                 OR (`TABLE`.`takeintoaccount_delay_stat` = 0\n                      AND `TABLE`.`time_to_own` < NOW())),\n            1, 0)"
+			},
+			{
+				"id": "180",
+				"table": "glpi_tickets",
+				"field": "internal_time_to_resolve",
+				"name": "Tiempo interno para resolver",
+				"datatype": "datetime",
+				"maybefuture": true,
+				"massiveaction": false,
+				"additionalfields": ["solvedate", "status"]
+			},
+			{
+				"id": "181",
+				"table": "glpi_tickets",
+				"field": "internal_time_to_resolve",
+				"name": "Tiempo internto para resolver + progreso",
+				"massiveaction": false,
+				"nosearch": true,
+				"additionalfields": ["status"]
+			},
+			{
+				"id": "182",
+				"table": "glpi_tickets",
+				"field": "is_late",
+				"name": "Tiempo interno para resolver excedido",
+				"datatype": "bool",
+				"massiveaction": false,
+				"computation": "IF(`TABLE`.`internal_time_to_resolve` IS NOT NULL\n            AND `TABLE`.`status` <> 4\n            AND (`TABLE`.`solvedate` > `TABLE`.`internal_time_to_resolve`\n                  OR (`TABLE`.`solvedate` IS NULL\n                     AND `TABLE`.`internal_time_to_resolve` < NOW())),\n            1, 0)"
+			},
+			{
+				"id": "185",
+				"table": "glpi_tickets",
+				"field": "internal_time_to_own",
+				"name": "Tiempo interno para poseer",
+				"datatype": "datetime",
+				"maybefuture": true,
+				"massiveaction": false,
+				"additionalfields": [
+					"date",
+					"status",
+					"takeintoaccount_delay_stat",
+					"takeintoaccountdate"
+				]
+			},
+			{
+				"id": "186",
+				"table": "glpi_tickets",
+				"field": "internal_time_to_own",
+				"name": "Tiempo interno para tener + progreso",
+				"massiveaction": false,
+				"nosearch": true,
+				"additionalfields": ["status"]
+			},
+			{
+				"id": "187",
+				"table": "glpi_tickets",
+				"field": "is_late",
+				"name": "Tiempo interno de atenci\u00f3n excedido",
+				"datatype": "bool",
+				"massiveaction": false,
+				"computation": "IF(`TABLE`.`internal_time_to_own` IS NOT NULL\n            AND `TABLE`.`status` <> 4\n            AND ((`TABLE`.`takeintoaccountdate` IS NOT NULL AND\n                 `TABLE`.`takeintoaccountdate` > `TABLE`.`internal_time_to_own`)\n                 OR (`TABLE`.`takeintoaccountdate` IS NULL AND\n                 `TABLE`.`takeintoaccount_delay_stat`\n                        > TIMESTAMPDIFF(SECOND,\n                                        `TABLE`.`date`,\n                                        `TABLE`.`internal_time_to_own`))\n                 OR (`TABLE`.`takeintoaccount_delay_stat` = 0\n                      AND `TABLE`.`internal_time_to_own` < NOW())),\n            1, 0)"
+			},
+			{
+				"id": "188",
+				"table": "glpi_tickets",
+				"field": "next_escalation_level",
+				"name": "Siguiente nivel de escalamiento",
+				"datatype": "datetime",
+				"usehaving": true,
+				"maybefuture": true,
+				"massiveaction": false,
+				"computation": "REPLACE(\n            LEAST(\n               IF(`TABLE`.`takeintoaccount_delay_stat` <= 0,\n                  COALESCE(`TABLE`.`time_to_own`, 99999999),\n                  99999999),\n               IF(`TABLE`.`takeintoaccount_delay_stat` <= 0,\n                  COALESCE(`TABLE`.`internal_time_to_own`, 99999999),\n                  99999999),\n               IF(`TABLE`.`solvedate` IS NULL,\n                  COALESCE(`TABLE`.`time_to_resolve`, 99999999),\n                  99999999),\n               IF(`TABLE`.`solvedate` IS NULL,\n                  COALESCE(`TABLE`.`internal_time_to_resolve`, 99999999),\n                  99999999)\n            ), 99999999, '')"
+			},
+			{
+				"id": "14",
+				"table": "glpi_tickets",
+				"field": "type",
+				"name": "Tipo",
+				"searchtype": "equals",
+				"datatype": "specific"
+			},
+			{
+				"id": "13",
+				"table": "glpi_items_tickets",
+				"field": "items_id",
+				"name": "Elementos asociados",
+				"datatype": "specific",
+				"comments": true,
+				"nosort": true,
+				"nosearch": true,
+				"additionalfields": ["itemtype"],
+				"joinparams": { "jointype": "child" },
+				"forcegroupby": true,
+				"massiveaction": false
+			},
+			{
+				"id": "131",
+				"table": "glpi_items_tickets",
+				"field": "itemtype",
+				"name": "Tipos de elemento asociado",
+				"datatype": "itemtypename",
+				"itemtype_list": "ticket_types",
+				"nosort": true,
+				"additionalfields": ["itemtype"],
+				"joinparams": { "jointype": "child" },
+				"forcegroupby": true,
+				"massiveaction": false
+			},
+			{
+				"id": "9",
+				"table": "glpi_requesttypes",
+				"field": "name",
+				"name": "Fuente de solicitud",
+				"datatype": "dropdown"
+			},
+			{ "id": "requester", "name": "Solicitante" },
+			{
+				"id": "4",
+				"table": "glpi_users",
+				"field": "name",
+				"datatype": "dropdown",
+				"right": "all",
+				"name": "Solicitante",
+				"forcegroupby": true,
+				"massiveaction": false,
+				"use_subquery": true,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_tickets_users",
+						"joinparams": {
+							"jointype": "child",
+							"condition": { "NEWTABLE.type": 1 }
+						}
+					}
+				}
+			},
+			{
+				"id": "71",
+				"table": "glpi_groups",
+				"field": "completename",
+				"datatype": "dropdown",
+				"name": "Grupo solicitante",
+				"forcegroupby": true,
+				"massiveaction": false,
+				"condition": { "is_requester": 1 },
+				"use_subquery": true,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_groups_tickets",
+						"joinparams": {
+							"jointype": "child",
+							"condition": { "NEWTABLE.type": 1 }
+						}
+					}
+				}
+			},
+			{
+				"id": "22",
+				"table": "glpi_users",
+				"field": "name",
+				"datatype": "dropdown",
+				"right": "all",
+				"linkfield": "users_id_recipient",
+				"name": "Escritor"
+			},
+			{ "id": "observer", "name": "Observador" },
+			{
+				"id": "66",
+				"table": "glpi_users",
+				"field": "name",
+				"datatype": "dropdown",
+				"right": "all",
+				"name": "Observador",
+				"forcegroupby": true,
+				"massiveaction": false,
+				"use_subquery": true,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_tickets_users",
+						"joinparams": {
+							"jointype": "child",
+							"condition": { "NEWTABLE.type": 3 }
+						}
+					}
+				}
+			},
+			{
+				"id": "65",
+				"table": "glpi_groups",
+				"field": "completename",
+				"datatype": "dropdown",
+				"name": "Grupo observador",
+				"forcegroupby": true,
+				"massiveaction": false,
+				"condition": { "is_watcher": 1 },
+				"use_subquery": true,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_groups_tickets",
+						"joinparams": {
+							"jointype": "child",
+							"condition": { "NEWTABLE.type": 3 }
+						}
+					}
+				}
+			},
+			{ "id": "assign", "name": "Asignado a" },
+			{
+				"id": "5",
+				"table": "glpi_users",
+				"field": "name",
+				"datatype": "dropdown",
+				"right": "own_ticket",
+				"name": "T\u00e9cnico",
+				"forcegroupby": true,
+				"massiveaction": false,
+				"use_subquery": true,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_tickets_users",
+						"joinparams": {
+							"jointype": "child",
+							"condition": { "NEWTABLE.type": 2 }
+						}
+					}
+				}
+			},
+			{
+				"id": "6",
+				"table": "glpi_suppliers",
+				"field": "name",
+				"datatype": "dropdown",
+				"name": "Asignado a un proveedor",
+				"forcegroupby": true,
+				"massiveaction": false,
+				"use_subquery": true,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_suppliers_tickets",
+						"joinparams": {
+							"jointype": "child",
+							"condition": { "NEWTABLE.type": 2 }
+						}
+					}
+				}
+			},
+			{
+				"id": "8",
+				"table": "glpi_groups",
+				"field": "completename",
+				"datatype": "dropdown",
+				"name": "Grupo t\u00e9cnico",
+				"forcegroupby": true,
+				"massiveaction": false,
+				"condition": { "is_assign": 1 },
+				"use_subquery": true,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_groups_tickets",
+						"joinparams": {
+							"jointype": "child",
+							"condition": { "NEWTABLE.type": 2 }
+						}
+					}
+				}
+			},
+			{ "id": "notification", "name": "Notificaciones" },
+			{
+				"id": "35",
+				"table": "glpi_tickets_users",
+				"field": "use_notification",
+				"name": "Seguimiento por email",
+				"datatype": "bool",
+				"massiveaction": false,
+				"joinparams": {
+					"jointype": "child",
+					"condition": { "NEWTABLE.type": 1 }
+				}
+			},
+			{
+				"id": "34",
+				"table": "glpi_tickets_users",
+				"field": "alternative_email",
+				"name": "Correo para el seguimiento",
+				"datatype": "email",
+				"massiveaction": false,
+				"joinparams": {
+					"jointype": "child",
+					"condition": { "NEWTABLE.type": 1 }
+				}
+			},
+			{ "id": "sla", "name": "SLA" },
+			{
+				"id": "37",
+				"table": "glpi_slas",
+				"field": "name",
+				"linkfield": "slas_id_tto",
+				"name": "SLA Tiempo en adue\u00f1arse",
+				"massiveaction": false,
+				"datatype": "dropdown",
+				"joinparams": { "condition": { "NEWTABLE.type": 1 } },
+				"condition": { "glpi_slas.type": 1 }
+			},
+			{
+				"id": "30",
+				"table": "glpi_slas",
+				"field": "name",
+				"linkfield": "slas_id_ttr",
+				"name": "SLA Tiempo en resolver",
+				"massiveaction": false,
+				"datatype": "dropdown",
+				"joinparams": { "condition": { "NEWTABLE.type": 0 } },
+				"condition": { "glpi_slas.type": 0 }
+			},
+			{
+				"id": "32",
+				"table": "glpi_slalevels",
+				"field": "name",
+				"name": "SLA Nivel de escalamiento",
+				"massiveaction": false,
+				"datatype": "dropdown",
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_slalevels_tickets",
+						"joinparams": { "jointype": "child" }
+					}
+				},
+				"forcegroupby": true
+			},
+			{ "id": "ola", "name": "OLA" },
+			{
+				"id": "190",
+				"table": "glpi_olas",
+				"field": "name",
+				"linkfield": "olas_id_tto",
+				"name": "OLA Tiempo interno para poseer",
+				"massiveaction": false,
+				"datatype": "dropdown",
+				"joinparams": { "condition": { "NEWTABLE.type": 1 } },
+				"condition": { "glpi_olas.type": 1 }
+			},
+			{
+				"id": "191",
+				"table": "glpi_olas",
+				"field": "name",
+				"linkfield": "olas_id_ttr",
+				"name": "OLA Tiempo interno para resolver",
+				"massiveaction": false,
+				"datatype": "dropdown",
+				"joinparams": { "condition": { "NEWTABLE.type": 0 } },
+				"condition": { "glpi_olas.type": 0 }
+			},
+			{
+				"id": "192",
+				"table": "glpi_olalevels",
+				"field": "name",
+				"name": "OLA Nivel de escalamiento",
+				"massiveaction": false,
+				"datatype": "dropdown",
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_olalevels_tickets",
+						"joinparams": { "jointype": "child" }
+					}
+				},
+				"forcegroupby": true
+			},
+			{ "id": "validation", "name": "Aprobaci\u00f3n" },
+			{
+				"id": "51",
+				"table": "glpi_tickets",
+				"field": "validation_percent",
+				"name": "Una validaci\u00f3n m\u00ednima es requerida",
+				"datatype": "number",
+				"unit": "%",
+				"min": 0,
+				"max": 100,
+				"step": 50
+			},
+			{
+				"id": "52",
+				"table": "glpi_tickets",
+				"field": "global_validation",
+				"name": "Aprobaci\u00f3n",
+				"searchtype": "equals",
+				"datatype": "specific"
+			},
+			{
+				"id": "53",
+				"table": "glpi_ticketvalidations",
+				"field": "comment_submission",
+				"name": "Comentario de solicitud",
+				"datatype": "text",
+				"htmltext": true,
+				"forcegroupby": true,
+				"massiveaction": false,
+				"joinparams": { "jointype": "child" }
+			},
+			{
+				"id": "54",
+				"table": "glpi_ticketvalidations",
+				"field": "comment_validation",
+				"name": "Comentario de aprobaci\u00f3n",
+				"datatype": "text",
+				"htmltext": true,
+				"forcegroupby": true,
+				"massiveaction": false,
+				"joinparams": { "jointype": "child" }
+			},
+			{
+				"id": "55",
+				"table": "glpi_ticketvalidations",
+				"field": "status",
+				"datatype": "specific",
+				"name": "Estado de aprovaci\u00f3n",
+				"searchtype": "equals",
+				"forcegroupby": true,
+				"massiveaction": false,
+				"joinparams": { "jointype": "child" }
+			},
+			{
+				"id": "56",
+				"table": "glpi_ticketvalidations",
+				"field": "submission_date",
+				"name": "Fecha de solicitud",
+				"datatype": "datetime",
+				"forcegroupby": true,
+				"massiveaction": false,
+				"joinparams": { "jointype": "child" }
+			},
+			{
+				"id": "57",
+				"table": "glpi_ticketvalidations",
+				"field": "validation_date",
+				"name": "Fecha de aprobaci\u00f3n",
+				"datatype": "datetime",
+				"forcegroupby": true,
+				"massiveaction": false,
+				"joinparams": { "jointype": "child" }
+			},
+			{
+				"id": "58",
+				"table": "glpi_users",
+				"field": "name",
+				"name": "Solicitante",
+				"datatype": "itemlink",
+				"right": "create_ticket_validate",
+				"forcegroupby": true,
+				"massiveaction": false,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_ticketvalidations",
+						"joinparams": { "jointype": "child" }
+					}
+				}
+			},
+			{
+				"id": "59",
+				"table": "glpi_users",
+				"field": "name",
+				"linkfield": "users_id_validate",
+				"name": "Aprobador",
+				"datatype": "itemlink",
+				"right": ["validate_request", "validate_incident"],
+				"forcegroupby": true,
+				"massiveaction": false,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_ticketvalidations",
+						"joinparams": { "jointype": "child" }
+					}
+				}
+			},
+			{ "id": "satisfaction", "name": "Encuesta de Satisfacci\u00f3n" },
+			{
+				"id": "31",
+				"table": "glpi_ticketsatisfactions",
+				"field": "type",
+				"name": "Tipo",
+				"massiveaction": false,
+				"searchtype": ["equals", "notequals"],
+				"searchequalsonfield": true,
+				"joinparams": { "jointype": "child" },
+				"datatype": "specific"
+			},
+			{
+				"id": "60",
+				"table": "glpi_ticketsatisfactions",
+				"field": "date_begin",
+				"name": "Fecha de creaci\u00f3n",
+				"datatype": "datetime",
+				"massiveaction": false,
+				"joinparams": { "jointype": "child" }
+			},
+			{
+				"id": "61",
+				"table": "glpi_ticketsatisfactions",
+				"field": "date_answered",
+				"name": "Fecha de respuesta",
+				"datatype": "datetime",
+				"massiveaction": false,
+				"joinparams": { "jointype": "child" }
+			},
+			{
+				"id": "62",
+				"table": "glpi_ticketsatisfactions",
+				"field": "satisfaction",
+				"name": "Satisfacci\u00f3n",
+				"datatype": "number",
+				"massiveaction": false,
+				"joinparams": { "jointype": "child" }
+			},
+			{
+				"id": "63",
+				"table": "glpi_ticketsatisfactions",
+				"field": "comment",
+				"name": "Comentarios",
+				"datatype": "text",
+				"massiveaction": false,
+				"joinparams": { "jointype": "child" }
+			},
+			{ "id": "followup", "name": "Seguimientos" },
+			{
+				"id": "25",
+				"table": "glpi_itilfollowups",
+				"field": "content",
+				"name": "Descripci\u00f3n",
+				"forcegroupby": true,
+				"splititems": true,
+				"massiveaction": false,
+				"joinparams": { "jointype": "itemtype_item", "condition": "" },
+				"datatype": "text",
+				"htmltext": true
+			},
+			{
+				"id": "36",
+				"table": "glpi_itilfollowups",
+				"field": "date",
+				"name": "Fecha",
+				"datatype": "datetime",
+				"massiveaction": false,
+				"forcegroupby": true,
+				"joinparams": { "jointype": "itemtype_item", "condition": "" }
+			},
+			{
+				"id": "72",
+				"table": "glpi_itilfollowups",
+				"field": "date",
+				"name": "Latest date",
+				"datatype": "datetime",
+				"massiveaction": false,
+				"forcegroupby": true,
+				"usehaving": true,
+				"joinparams": { "jointype": "itemtype_item", "condition": "" },
+				"computation": "MAX( `TABLE`.`date`)",
+				"nometa": true
+			},
+			{
+				"id": "27",
+				"table": "glpi_itilfollowups",
+				"field": "id",
+				"name": "N\u00famero de seguimientos",
+				"forcegroupby": true,
+				"usehaving": true,
+				"datatype": "count",
+				"massiveaction": false,
+				"joinparams": { "jointype": "itemtype_item", "condition": "" }
+			},
+			{
+				"id": "29",
+				"table": "glpi_requesttypes",
+				"field": "name",
+				"name": "Fuente de solicitud",
+				"datatype": "dropdown",
+				"forcegroupby": true,
+				"massiveaction": false,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_itilfollowups",
+						"joinparams": { "jointype": "itemtype_item", "condition": "" }
+					}
+				}
+			},
+			{
+				"id": "91",
+				"table": "glpi_itilfollowups",
+				"field": "is_private",
+				"name": "Seguimiento privado",
+				"datatype": "bool",
+				"forcegroupby": true,
+				"splititems": true,
+				"massiveaction": false,
+				"joinparams": { "jointype": "itemtype_item", "condition": "" }
+			},
+			{
+				"id": "93",
+				"table": "glpi_users",
+				"field": "name",
+				"name": "Escritor",
+				"datatype": "itemlink",
+				"right": "all",
+				"forcegroupby": true,
+				"massiveaction": false,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_itilfollowups",
+						"joinparams": { "jointype": "itemtype_item", "condition": "" }
+					}
+				}
+			},
+			{ "id": "task", "name": "Tareas" },
+			{
+				"id": "26",
+				"table": "glpi_tickettasks",
+				"field": "content",
+				"name": "Descripci\u00f3n",
+				"datatype": "text",
+				"forcegroupby": true,
+				"splititems": true,
+				"massiveaction": false,
+				"htmltext": true,
+				"joinparams": { "jointype": "child", "condition": "" }
+			},
+			{
+				"id": "28",
+				"table": "glpi_tickettasks",
+				"field": "id",
+				"name": "N\u00famero de tareas",
+				"forcegroupby": true,
+				"usehaving": true,
+				"datatype": "count",
+				"massiveaction": false,
+				"joinparams": { "jointype": "child", "condition": "" }
+			},
+			{
+				"id": "20",
+				"table": "glpi_taskcategories",
+				"field": "name",
+				"datatype": "dropdown",
+				"name": "Categor\u00eda",
+				"forcegroupby": true,
+				"splititems": true,
+				"massiveaction": false,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_tickettasks",
+						"joinparams": { "jointype": "child", "condition": "" }
+					}
+				}
+			},
+			{
+				"id": "92",
+				"table": "glpi_tickettasks",
+				"field": "is_private",
+				"name": "Tarea privada",
+				"datatype": "bool",
+				"forcegroupby": true,
+				"splititems": true,
+				"massiveaction": false,
+				"joinparams": { "jointype": "child", "condition": "" }
+			},
+			{
+				"id": "94",
+				"table": "glpi_users",
+				"field": "name",
+				"name": "Escritor",
+				"datatype": "itemlink",
+				"right": "all",
+				"forcegroupby": true,
+				"massiveaction": false,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_tickettasks",
+						"joinparams": { "jointype": "child", "condition": "" }
+					}
+				}
+			},
+			{
+				"id": "95",
+				"table": "glpi_users",
+				"field": "name",
+				"linkfield": "users_id_tech",
+				"name": "T\u00e9cnico a cargo",
+				"datatype": "itemlink",
+				"right": "own_ticket",
+				"forcegroupby": true,
+				"massiveaction": false,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_tickettasks",
+						"joinparams": { "jointype": "child", "condition": "" }
+					}
+				}
+			},
+			{
+				"id": "112",
+				"table": "glpi_groups",
+				"field": "completename",
+				"linkfield": "groups_id_tech",
+				"name": "Grupo a cargo",
+				"datatype": "itemlink",
+				"condition": { "is_task": 1 },
+				"forcegroupby": true,
+				"massiveaction": false,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_tickettasks",
+						"joinparams": { "jointype": "child", "condition": "" }
+					}
+				}
+			},
+			{
+				"id": "96",
+				"table": "glpi_tickettasks",
+				"field": "actiontime",
+				"name": "Duraci\u00f3n",
+				"datatype": "timestamp",
+				"massiveaction": false,
+				"forcegroupby": true,
+				"joinparams": { "jointype": "child", "condition": "" }
+			},
+			{
+				"id": "97",
+				"table": "glpi_tickettasks",
+				"field": "date",
+				"name": "Fecha",
+				"datatype": "datetime",
+				"massiveaction": false,
+				"forcegroupby": true,
+				"joinparams": { "jointype": "child", "condition": "" }
+			},
+			{
+				"id": "73",
+				"table": "glpi_tickettasks",
+				"field": "date",
+				"name": "Latest date",
+				"datatype": "datetime",
+				"massiveaction": false,
+				"forcegroupby": true,
+				"joinparams": { "jointype": "child", "condition": "" },
+				"computation": "MAX( `TABLE`.`date`)",
+				"nometa": true
+			},
+			{
+				"id": "33",
+				"table": "glpi_tickettasks",
+				"field": "state",
+				"name": "Estados",
+				"datatype": "specific",
+				"searchtype": "equals",
+				"searchequalsonfield": true,
+				"massiveaction": false,
+				"forcegroupby": true,
+				"joinparams": { "jointype": "child", "condition": "" }
+			},
+			{
+				"id": "173",
+				"table": "glpi_tickettasks",
+				"field": "begin",
+				"name": "Iniciar fecha",
+				"datatype": "datetime",
+				"maybefuture": true,
+				"massiveaction": false,
+				"forcegroupby": true,
+				"joinparams": { "jointype": "child", "condition": "" }
+			},
+			{
+				"id": "174",
+				"table": "glpi_tickettasks",
+				"field": "end",
+				"name": "Fecha de Fin",
+				"datatype": "datetime",
+				"maybefuture": true,
+				"massiveaction": false,
+				"forcegroupby": true,
+				"joinparams": { "jointype": "child", "condition": "" }
+			},
+			{
+				"id": "175",
+				"table": "glpi_tasktemplates",
+				"field": "name",
+				"linkfield": "tasktemplates_id",
+				"name": "Plantilla de tarea",
+				"datatype": "dropdown",
+				"massiveaction": false,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_tickettasks",
+						"joinparams": { "jointype": "child", "condition": "" }
+					}
+				}
+			},
+			{ "id": "stats", "name": "Estad\u00edsticas" },
+			{
+				"id": "154",
+				"table": "glpi_tickets",
+				"field": "solve_delay_stat",
+				"name": "Tiempo de resoluci\u00f3n",
+				"datatype": "timestamp",
+				"forcegroupby": true,
+				"massiveaction": false
+			},
+			{
+				"id": "152",
+				"table": "glpi_tickets",
+				"field": "close_delay_stat",
+				"name": "Tiempo de cierre",
+				"datatype": "timestamp",
+				"forcegroupby": true,
+				"massiveaction": false
+			},
+			{
+				"id": "153",
+				"table": "glpi_tickets",
+				"field": "waiting_duration",
+				"name": "Tiempo de espera",
+				"datatype": "timestamp",
+				"forcegroupby": true,
+				"massiveaction": false
+			},
+			{
+				"id": "150",
+				"table": "glpi_tickets",
+				"field": "takeintoaccount_delay_stat",
+				"name": "Tome en consideraci\u00f3n el tiempo",
+				"datatype": "timestamp",
+				"forcegroupby": true,
+				"massiveaction": false
+			},
+			{ "id": "linktickets", "name": "Casos vinculados" },
+			{
+				"id": "40",
+				"table": "glpi_tickets_tickets",
+				"field": "tickets_id_1",
+				"name": "Todos los casos enlazados",
+				"massiveaction": false,
+				"forcegroupby": true,
+				"searchtype": "equals",
+				"joinparams": { "jointype": "item_item" },
+				"additionalfields": ["tickets_id_2"]
+			},
+			{
+				"id": "47",
+				"table": "glpi_tickets_tickets",
+				"field": "tickets_id_1",
+				"name": "Casos duplicados",
+				"massiveaction": false,
+				"searchtype": "equals",
+				"joinparams": {
+					"jointype": "item_item",
+					"condition": { "NEWTABLE.link": 2 }
+				},
+				"additionalfields": ["tickets_id_2"],
+				"forcegroupby": true
+			},
+			{
+				"id": "41",
+				"table": "glpi_tickets_tickets",
+				"field": "id",
+				"name": "Cantidad de todos los casos enlazados",
+				"massiveaction": false,
+				"datatype": "count",
+				"usehaving": true,
+				"joinparams": { "jointype": "item_item" }
+			},
+			{
+				"id": "46",
+				"table": "glpi_tickets_tickets",
+				"field": "id",
+				"name": "N\u00famero de casos duplicados",
+				"massiveaction": false,
+				"datatype": "count",
+				"usehaving": true,
+				"joinparams": {
+					"jointype": "item_item",
+					"condition": { "NEWTABLE.link": 2 }
+				}
+			},
+			{
+				"id": "50",
+				"table": "glpi_tickets",
+				"field": "id",
+				"linkfield": "tickets_id_2",
+				"name": "Casos padres",
+				"massiveaction": false,
+				"searchtype": "equals",
+				"datatype": "itemlink",
+				"usehaving": true,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_tickets_tickets",
+						"joinparams": {
+							"jointype": "child",
+							"linkfield": "tickets_id_1",
+							"condition": { "NEWTABLE.link": 3 }
+						}
+					}
+				},
+				"forcegroupby": true
+			},
+			{
+				"id": "67",
+				"table": "glpi_tickets",
+				"field": "id",
+				"linkfield": "tickets_id_1",
+				"name": "Casos hijos",
+				"massiveaction": false,
+				"searchtype": "equals",
+				"datatype": "itemlink",
+				"usehaving": true,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_tickets_tickets",
+						"joinparams": {
+							"jointype": "child",
+							"linkfield": "tickets_id_2",
+							"condition": { "NEWTABLE.link": 3 }
+						}
+					}
+				},
+				"forcegroupby": true
+			},
+			{
+				"id": "68",
+				"table": "glpi_tickets_tickets",
+				"field": "id",
+				"name": "Numero de casos hijos",
+				"massiveaction": false,
+				"datatype": "count",
+				"usehaving": true,
+				"joinparams": {
+					"linkfield": "tickets_id_2",
+					"jointype": "child",
+					"condition": { "NEWTABLE.link": 3 }
+				},
+				"forcegroupby": true
+			},
+			{
+				"id": "69",
+				"table": "glpi_tickets_tickets",
+				"field": "id",
+				"name": "Numero de casos para padres",
+				"massiveaction": false,
+				"datatype": "count",
+				"usehaving": true,
+				"joinparams": {
+					"linkfield": "tickets_id_1",
+					"jointype": "child",
+					"condition": { "NEWTABLE.link": 3 }
+				},
+				"additionalfields": ["tickets_id_2"]
+			},
+			{ "id": "solution", "name": "Soluciones" },
+			{
+				"id": "23",
+				"table": "glpi_solutiontypes",
+				"field": "name",
+				"name": "Tipo de soluci\u00f3n",
+				"datatype": "dropdown",
+				"massiveaction": false,
+				"forcegroupby": true,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_itilsolutions",
+						"joinparams": { "jointype": "itemtype_item" }
+					}
+				}
+			},
+			{
+				"id": "24",
+				"table": "glpi_itilsolutions",
+				"field": "content",
+				"name": "Soluciones",
+				"datatype": "text",
+				"htmltext": true,
+				"massiveaction": false,
+				"forcegroupby": true,
+				"joinparams": { "jointype": "itemtype_item" }
+			},
+			{
+				"id": "38",
+				"table": "glpi_itilsolutions",
+				"field": "status",
+				"name": "Cualquier estado de soluci\u00f3n",
+				"datatype": "specific",
+				"searchtype": ["equals", "notequals"],
+				"searchequalsonfield": true,
+				"massiveaction": false,
+				"forcegroupby": true,
+				"joinparams": { "jointype": "itemtype_item" }
+			},
+			{
+				"id": "39",
+				"table": "glpi_itilsolutions",
+				"field": "status",
+				"name": "\u00daltimo estado de la soluci\u00f3n",
+				"datatype": "specific",
+				"searchtype": ["equals", "notequals"],
+				"searchequalsonfield": true,
+				"massiveaction": false,
+				"forcegroupby": true,
+				"joinparams": {
+					"jointype": "itemtype_item",
+					"condition": { "NEWTABLE.id": ["=", {}] }
+				}
+			},
+			{
+				"id": "74",
+				"table": "glpi_itilsolutions",
+				"field": "date_creation",
+				"name": "Latest date",
+				"datatype": "datetime",
+				"massiveaction": false,
+				"forcegroupby": true,
+				"joinparams": { "jointype": "itemtype_item" },
+				"computation": "MAX( `TABLE`.`date_creation`)",
+				"nometa": true
+			},
+			{ "id": "cost", "name": "Costo" },
+			{
+				"id": "48",
+				"table": "glpi_ticketcosts",
+				"field": "totalcost",
+				"name": "Costo total",
+				"datatype": "decimal",
+				"forcegroupby": true,
+				"usehaving": true,
+				"massiveaction": false,
+				"joinparams": { "jointype": "child" },
+				"computation": "(SUM(`TABLE`.`actiontime` * `TABLE`.`cost_time`/3600 + `TABLE`.`cost_fixed` + `TABLE`.`cost_material`) / COUNT(`TABLE`.`id`)) * COUNT(DISTINCT `TABLE`.`id`)",
+				"nometa": true
+			},
+			{
+				"id": "42",
+				"table": "glpi_ticketcosts",
+				"field": "cost_time",
+				"name": "Costo del tiempo",
+				"datatype": "decimal",
+				"forcegroupby": true,
+				"usehaving": true,
+				"massiveaction": false,
+				"joinparams": { "jointype": "child" },
+				"computation": "(SUM(`TABLE`.`actiontime` * `TABLE`.`cost_time`/3600) / COUNT(`TABLE`.`id`)) * COUNT(DISTINCT `TABLE`.`id`)",
+				"nometa": true
+			},
+			{
+				"id": "49",
+				"table": "glpi_ticketcosts",
+				"field": "actiontime",
+				"name": "Costo - Duraci\u00f3n",
+				"datatype": "timestamp",
+				"forcegroupby": true,
+				"usehaving": true,
+				"massiveaction": false,
+				"joinparams": { "jointype": "child" }
+			},
+			{
+				"id": "43",
+				"table": "glpi_ticketcosts",
+				"field": "cost_fixed",
+				"name": "Costo fijo",
+				"datatype": "decimal",
+				"forcegroupby": true,
+				"usehaving": true,
+				"massiveaction": false,
+				"joinparams": { "jointype": "child" },
+				"computation": "(SUM(`TABLE`.`cost_fixed`) / COUNT(`TABLE`.`id`))\n            * COUNT(DISTINCT `TABLE`.`id`)",
+				"nometa": true
+			},
+			{
+				"id": "44",
+				"table": "glpi_ticketcosts",
+				"field": "cost_material",
+				"name": "Costo de material",
+				"datatype": "decimal",
+				"forcegroupby": true,
+				"usehaving": true,
+				"massiveaction": false,
+				"joinparams": { "jointype": "child" },
+				"computation": "(SUM(`TABLE`.`cost_material`) / COUNT(`TABLE`.`id`))\n            * COUNT(DISTINCT `TABLE`.`id`)",
+				"nometa": true
+			},
+			{ "id": "problem", "name": "Problemas" },
+			{
+				"id": "200",
+				"table": "glpi_problems_tickets",
+				"field": "id",
+				"name": "N\u00famero de problemas",
+				"forcegroupby": true,
+				"usehaving": true,
+				"datatype": "count",
+				"massiveaction": false,
+				"joinparams": { "jointype": "child" }
+			},
+			{
+				"id": "201",
+				"table": "glpi_problems",
+				"field": "name",
+				"name": "Problema",
+				"datatype": "dropdown",
+				"massiveaction": false,
+				"forcegroupby": true,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_problems_tickets",
+						"joinparams": { "jointype": "child" }
+					}
+				}
+			},
+			{
+				"id": "202",
+				"table": "glpi_problems",
+				"field": "status",
+				"name": "Estados",
+				"datatype": "specific",
+				"searchtype": "equals",
+				"searchequalsonfield": true,
+				"massiveaction": false,
+				"forcegroupby": true,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_problems_tickets",
+						"joinparams": { "jointype": "child" }
+					}
+				}
+			},
+			{
+				"id": "203",
+				"table": "glpi_problems",
+				"field": "solvedate",
+				"name": "Fecha de resoluci\u00f3n",
+				"datatype": "datetime",
+				"massiveaction": false,
+				"forcegroupby": true,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_problems_tickets",
+						"joinparams": { "jointype": "child" }
+					}
+				}
+			},
+			{
+				"id": "204",
+				"table": "glpi_problems",
+				"field": "date",
+				"name": "Fecha de apertura",
+				"datatype": "datetime",
+				"massiveaction": false,
+				"forcegroupby": true,
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_problems_tickets",
+						"joinparams": { "jointype": "child" }
+					}
+				}
+			},
+			{ "id": "change", "name": "Cambios" },
+			{
+				"id": "210",
+				"table": "glpi_changes_tickets",
+				"field": "id",
+				"name": "N\u00famero de cambios",
+				"forcegroupby": true,
+				"usehaving": true,
+				"datatype": "count",
+				"massiveaction": false,
+				"joinparams": { "jointype": "child" }
+			},
+			{ "id": "tools", "name": "Herramientas" },
+			{
+				"id": "193",
+				"table": "glpi_contracts",
+				"field": "name",
+				"linkfield": "contracts_id",
+				"name": "Contrato",
+				"massiveaction": false,
+				"searchtype": ["equals", "contains"],
+				"datatype": "dropdown",
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_tickets_contracts",
+						"joinparams": { "jointype": "child", "linkfield": "tickets_id" }
+					}
+				}
+			},
+			{
+				"id": "194",
+				"table": "glpi_contracttypes",
+				"field": "name",
+				"linkfield": "contracttypes_id",
+				"name": "Tipo de contrato",
+				"massiveaction": false,
+				"searchtype": ["equals", "contains"],
+				"datatype": "dropdown",
+				"joinparams": {
+					"beforejoin": {
+						"table": "glpi_contracts",
+						"joinparams": {
+							"jointype": "empty",
+							"linkfield": "contracts_id",
+							"beforejoin": {
+								"table": "glpi_tickets_contracts",
+								"joinparams": { "jointype": "child", "linkfield": "tickets_id" }
+							}
+						}
+					}
+				}
+			}
+		]
+	],
+	"b": {
+		"1": {
+			"id": "1",
+			"table": "glpi_tickets",
+			"field": "name",
+			"name": "T\u00edtulo",
+			"datatype": "itemlink",
+			"searchtype": "contains",
+			"massiveaction": false,
+			"additionalfields": ["id", "status"]
+		},
+		"15": {
+			"id": "7",
+			"table": "glpi_itilcategories",
+			"field": "completename",
+			"name": "Categor\u00eda",
+			"datatype": "dropdown"
+		},
+		"43": {
+			"id": "14",
+			"table": "glpi_tickets",
+			"field": "type",
+			"name": "Tipo",
+			"searchtype": "equals",
+			"datatype": "specific"
+		},
+		"57": {
+			"id": "8",
+			"table": "glpi_groups",
+			"field": "completename",
+			"datatype": "dropdown",
+			"name": "Grupo t\u00e9cnico",
+			"forcegroupby": true,
+			"massiveaction": false,
+			"condition": { "is_assign": 1 },
+			"use_subquery": true,
+			"joinparams": {
+				"beforejoin": {
+					"table": "glpi_groups_tickets",
+					"joinparams": {
+						"jointype": "child",
+						"condition": { "NEWTABLE.type": 2 }
+					}
+				}
+			}
+		},
+		"itilcategories_id": "1744",
+		"name": "Activaci\u00f3n de cuentas de usuario",
+		"_groups_id_assign": "9",
+		"type": "2",
+		"entities_id": 0,
+		"status": 1,
+		"tickets_id": 603
+	},
+	"c": {
+		"1": {
+			"id": "1",
+			"table": "glpi_tickets",
+			"field": "name",
+			"name": "T\u00edtulo",
+			"datatype": "itemlink",
+			"searchtype": "contains",
+			"massiveaction": false,
+			"additionalfields": ["id", "status"],
+			"value": "Activaci\u00f3n de cuentas de usuario"
+		},
+		"7": {
+			"id": "7",
+			"table": "glpi_itilcategories",
+			"field": "completename",
+			"name": "Categor\u00eda",
+			"datatype": "dropdown",
+			"value": "1744"
+		},
+		"14": {
+			"id": "14",
+			"table": "glpi_tickets",
+			"field": "type",
+			"name": "Tipo",
+			"searchtype": "equals",
+			"datatype": "specific",
+			"value": "2"
+		},
+		"8": {
+			"id": "8",
+			"table": "glpi_groups",
+			"field": "completename",
+			"datatype": "dropdown",
+			"name": "Grupo t\u00e9cnico",
+			"forcegroupby": true,
+			"massiveaction": false,
+			"condition": { "is_assign": 1 },
+			"use_subquery": true,
+			"joinparams": {
+				"beforejoin": {
+					"table": "glpi_groups_tickets",
+					"joinparams": {
+						"jointype": "child",
+						"condition": { "NEWTABLE.type": 2 }
+					}
+				}
+			},
+			"value": "9"
+		}
+	}
+}
