@@ -1,5 +1,10 @@
 <?php
 
+if (PHP_SAPI !== 'cli') {
+    http_response_code(404);
+    die(1);
+}
+
 include(__DIR__ . "/../inc/includes.php");
 
 function getUsersWithoutLocation($db, $excludes)
@@ -84,12 +89,12 @@ function updateLocations(&$completed = false)
 
 // ----------- EJECUCIÓN ------------
 try {
-    echo "Iniciando ejecución de cron...<br>";
+    echo "Iniciando ejecución de cron..." . PHP_EOL;
     [$q, $i, $u] = updateLocations($completed);
-    echo "Ejecución de tarea para actualizar ubicación de usuarios<br>";
-    echo "... Consultas realizadas: $q<br>";
-    echo "... Ubicaciones creadas: $i<br>";
-    echo "... Usuarios actualizados: $u<br>";
+    echo "Ejecución de tarea para actualizar ubicación de usuarios" . PHP_EOL;
+    echo "... Consultas realizadas: $q" . PHP_EOL;
+    echo "... Ubicaciones creadas: $i" . PHP_EOL;
+    echo "... Usuarios actualizados: $u" . PHP_EOL;
     echo $completed ? "✅ Cron ejecutado correctamente" : "❌ Error en la ejecución del cron";
 } catch (Throwable $e) {
     echo "❌ Error en la ejecución del cron: " . $e->getMessage();
